@@ -4,15 +4,16 @@ const loadCountries =()=>{
     .then(data =>displayCountries(data))
 }
 const displayCountries =(countries)=>{
-    console.log(countries)
+    console.log(countries[0])
     const allCountries=countries.map(contry =>getCountryHtml(contry))
-    const contry = document.getElementById('contry').innerHTML=allCountries
+    const contry = document.getElementById('contry').innerHTML=allCountries.join(' ')
 }
 
 const getCountryHtml =(country)=>{
     return `
-    <div>
+    <div class='country'>
          <h1>${country.name}</h1>
+         <img src="${country.flags.png}" alt="">
     </div>
     
     `
